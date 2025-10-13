@@ -43,6 +43,8 @@ module Parallel
                          ?progress: _ToStr,
                          ?start: ^(T item, Integer index) -> void,
                          ?finish: ^(T item, Integer index, U result) -> void) { (T) -> U } -> callable_source[T]
+               | [T] (Array[T] source, **untyped options) -> Array[T]
+               | [T] (Array[T] source, **untyped options) { (T) -> untyped } -> Array[T]
 
   def self.each_with_index: [T, U] (Enumerable[T] source,
                                     ?in_processes: Integer,
